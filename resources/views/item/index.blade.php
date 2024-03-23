@@ -10,8 +10,18 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+            <div>
+                       
+
+                       @csrf
+
+                           <input type="text" name="keyword">
+                           <input type="submit" value="検索">
+                       
+                   </div>
                 <div class="card-header">
                     <h3 class="card-title">商品一覧</h3>
+                    
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
@@ -28,6 +38,8 @@
                                 <th>名前</th>
                                 <th>種別</th>
                                 <th>詳細</th>
+                                <th> </th>
+                                <th> </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,14 +49,24 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->detail }}</td>
+                                    <form action="{{ '/items/delete/' }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="item_id" value="{{ $item->id }}">
+                                        <td><button type="submit" class="btn btn-default">削除</button></td>
+                                    </form>
+                                    <th><a href="{{ url('items/hensyu/'.$item->id) }}" class="btn btn-default">編集</a></th>
+                                    
                                 </tr>
                             @endforeach
                         </tbody>
-                    </table>
+                    </table>               
                 </div>
             </div>
         </div>
     </div>
+    <div class="page">
+    {!! $items->render() !!}
+    </div>    
 @stop
 
 @section('css')

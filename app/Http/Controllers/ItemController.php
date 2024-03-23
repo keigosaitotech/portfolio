@@ -26,9 +26,19 @@ class ItemController extends Controller
         // 商品一覧取得
         $items = Item::all();
 
+        //商品一覧 ページネーション
+        $items = Item::paginate(5);
+
         return view('item.index', compact('items'));
     }
 
+       //商品削除ボタン
+    public function destroy(Request $request, Item $item)
+    {
+        Item::where('id', $request->item_id)->delete();
+        return redirect('/items')->with('message','商品情報を削除しました');
+    }
+ 
     /**
      * 商品登録
      */
@@ -53,5 +63,24 @@ class ItemController extends Controller
         }
 
         return view('item.add');
+    }
+
+   
+    /**
+     * 商品編集
+     */
+    public function hensyu($id){
+        $item=Item::find($id);
+        return view('item.hensyu',compact('item'));
+    }
+
+     public function henkou(Request $request,$id){
+        $item=Item::find($id);
+        $item->name=$request->name;
+        $item->type=$request->type;
+        $item->detail=$request->detail;
+        $item->save();
+
+        return redirect('/items');
     }
 }
