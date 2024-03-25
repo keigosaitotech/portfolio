@@ -24,19 +24,15 @@ class ItemController extends Controller
     public function index()
     {
         // 商品一覧取得
-        $items = Item::all();
-
-        //商品一覧 ページネーション
-        $items = Item::paginate(5);
-
-        return view('item.index', compact('items'));
+        $items = Item::sortable()->paginate(5); 
+        return view('item.index',compact('items'));
     }
 
        //商品削除ボタン
     public function destroy(Request $request, Item $item)
     {
         Item::where('id', $request->item_id)->delete();
-        return redirect('/items')->with('message','商品情報を削除しました');
+        return redirect('/items');
     }
  
     /**
@@ -82,5 +78,27 @@ class ItemController extends Controller
         $item->save();
 
         return redirect('/items');
+    }
+
+    public function kensaku(Request $request)
+    {
+
+         /* テーブルから全てのレコードを取得する */
+           $items = null;
+           /* $items = Item::all(); どちらが適正か*/
+
+
+        /* キーワードから検索処理 */
+        $keyword = $request->input('keyword');
+        if(!empty($keyword)) {//$keyword　が空ではない場合、検索処理を実行します
+            $items = Item::where('name', 'LIKE', "%{$keyword}%")
+            ->paginate(5);
+
+        }else{
+            $items = Item::paginate(5);
+        }
+
+        return view('item.index', compact('items'));
+
     }
 }

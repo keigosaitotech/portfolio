@@ -28,4 +28,6 @@ Route::prefix('items')->group(function () {
     Route::post('/delete', [App\Http\Controllers\ItemController::class, 'destroy']);
     Route::post('/henkou/{id}', [App\Http\Controllers\ItemController::class, 'henkou']);
     Route::get('/hensyu/{id}', [App\Http\Controllers\ItemController::class, 'hensyu']);
+    Route::get('/kensaku', [App\Http\Controllers\ItemController::class, 'kensaku']);
+
 });

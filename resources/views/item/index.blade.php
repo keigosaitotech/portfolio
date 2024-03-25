@@ -10,15 +10,16 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                <!-- 検索機能 -->
             <div>
-                       
+                <form action="{{ url('items/kensaku') }}" method="GET">
 
-                       @csrf
+                @csrf
 
-                           <input type="text" name="keyword">
-                           <input type="submit" value="検索">
-                       
-                   </div>
+                    <input type="text" name="keyword">
+                    <input type="submit" value="検索">
+                </form>
+            </div>
                 <div class="card-header">
                     <h3 class="card-title">商品一覧</h3>
                     
@@ -34,8 +35,8 @@
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>名前</th>
+                                <th>@sortablelink('id', 'ID')</th>
+                                <th>@sortablelink('name', '名前')</th>
                                 <th>種別</th>
                                 <th>詳細</th>
                                 <th> </th>
@@ -65,7 +66,7 @@
         </div>
     </div>
     <div class="page">
-    {!! $items->render() !!}
+    {{ $items->appends(\Request::except('page'))->render() }}
     </div>    
 @stop
 

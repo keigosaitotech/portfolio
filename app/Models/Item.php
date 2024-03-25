@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable; 
+
 
 class Item extends Model
 {
@@ -33,4 +35,6 @@ class Item extends Model
      */
     protected $casts = [
     ];
+
+    use Sortable; 
 }
