@@ -50,11 +50,13 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->detail }}</td>
-                                    <form action="{{ '/items/delete/' }}" method="post">
-                                        @csrf
-                                        <input type="hidden" name="item_id" value="{{ $item->id }}">
-                                        <td><button type="submit" class="btn btn-default">削除</button></td>
-                                    </form>
+                                    <td>
+                                        <form action="{{ '/items/delete/' }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="item_id" value="{{ $item->id }}">
+                                            <button type="submit" class="btn btn-default">削除</button>
+                                        </form>
+                                    </td>
                                     <th><a href="{{ url('items/hensyu/'.$item->id) }}" class="btn btn-default">編集</a></th>
                                     
                                 </tr>
