@@ -51,7 +51,7 @@
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->detail }}</td>
                                     <td>
-                                        <form action="{{ '/items/delete/' }}" method="post">
+                                        <form action="{{ '/items/delete' }}" method="post">
                                             @csrf
                                             <input type="hidden" name="item_id" value="{{ $item->id }}">
                                             <button type="submit" class="btn btn-default">削除</button>
