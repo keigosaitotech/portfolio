@@ -13,9 +13,6 @@
                 <!-- 検索機能 -->
             <div>
                 <form action="{{ url('items/kensaku') }}" method="GET">
-
-                @csrf
-
                     <input type="text" name="keyword">
                     <input type="submit" value="検索">
                 </form>
