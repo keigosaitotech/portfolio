@@ -71,6 +71,11 @@ class ItemController extends Controller
     }
 
      public function henkou(Request $request,$id){
+        $request->validate([
+            'name'=> 'required|max:100',
+            'type'=>'required|max:100',
+            'detail'=> 'required|max:200',
+        ]);
         $item=Item::find($id);
         $item->name=$request->name;
         $item->type=$request->type;
