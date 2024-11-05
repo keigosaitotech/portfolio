@@ -1,44 +1,26 @@
-## 商品管理システム
+# 商品管理システム
 
-### 環境構築手順
+## 概要
+このシステムでは、会員登録をし、ログインすると、登録されてある商品が閲覧できます。
+登録された商品または、詳細情報も確認することができます。
+商品については、
+1.ID 2.商品名　3.種別　4.詳細
+を閲覧することができます。
+## 主な機能
+- ログイン機能,ログアウト機能
+- 商品一覧画面
+- 商品新規登録、編集、削除機能
+- 商品検索機能
+- ページネーション
+- ソート機能
 
-* Gitクローン
-* .env.example をコピーして .env を作成
-* MySQLのデータベース作成（名前：item_management）
-* Macの場合 .env の DB_PASSWORD を root に修正（Windowsは修正不要）
+## 開発環境
 
-    ```INI
-    DB_PASSWORD=root
-    ```
+PHP
+MySQL
+Laravel
 
-* APP_KEY生成
+## 設計書
 
-    ```console
-    php artisan key:generate
-    ```
-
-* Composerインストール
-
-    ```console
-    composer install
-    ```
-
-* フロント環境構築
-
-    ```console
-    npm ci
-    npm run build
-    ```
-
-* マイグレーション
-
-    ```console
-    php artisan migrate
-    ```
-
-* 起動
-
-    ```console
-    php artisan serve
-    ```
-# portfolio
+## システム閲覧
+### テストアカウント情報
