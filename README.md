@@ -29,7 +29,7 @@ Laravel 10.13.5
 
 ### テストアカウント情報 
 ```
-メールアドレス:teat@techisjp
+メールアドレス:test@techisjp
 
 パスワード:testtechisjp
 ```
