@@ -17,10 +17,19 @@
 ## 開発環境
 
 PHP 8.2.12
-MySQL
-Laravel
+
+MySQL 5.2.1
+
+Laravel 10.13.5
 
 ## 設計書
 
 ## システム閲覧
-### テストアカウント情報
+[アプリケーションページへ](https://techis-keigo-kanri-84337d5f4b17.herokuapp.com/login)
+
+### テストアカウント情報 
+```
+メールアドレス:teat@techisjp
+
+パスワード:testtechisjp
+```
