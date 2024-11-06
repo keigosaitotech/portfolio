@@ -16,7 +16,7 @@
 
 ## 開発環境
 
-PHP
+PHP 8.2.12
 MySQL
 Laravel
 
